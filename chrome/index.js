@@ -26,7 +26,7 @@
 //   false
 // )
 
-const url = 'youtube-attend.uniium.com/bundle.js'
+const url = 'http://youtube-attend.uniium.com/bundle.js'
 const onClick = () => {
   chrome.tabs.executeScript({
     code: `
