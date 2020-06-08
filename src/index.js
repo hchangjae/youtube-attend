@@ -1,4 +1,9 @@
-import './style.css'
-import a from './temp'
+import openWindow from './window'
 
-a()
+const chatList = [
+  ...document.querySelector(
+    'div#items.style-scope.yt-live-chat-item-list-renderer'
+  ).children,
+]
+
+openWindow(chatList)
