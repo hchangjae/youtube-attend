@@ -1,1 +1,4 @@
-alert('hello world')
+import './style.cs'
+import a from './temp'
+
+a()
