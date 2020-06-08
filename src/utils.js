@@ -4,9 +4,14 @@ export const messageSelector = (chat) =>
 export const nameSelector = (chat) =>
   chat?.children[1]?.children[1]?.children[0]?.innerText
 export const cardGenerator = (document) => (chat) => {
-  const card = window.document.createElement('div')
-  card.setAttribute('class', 'card')
-  card.innerText = nameSelector(chat)
+  const card = document.createElement('div')
+  const name = document.createElement('div')
 
+  card.setAttribute('class', 'card')
+  name.setAttribute('class', 'name')
+
+  name.innerText = nameSelector(chat)
+
+  card.appendChild(name)
   return card
 }

@@ -7,7 +7,7 @@ const openWindow = (chatList) => {
 
   const appendHead = (document) => {
     const link = document.createElement('link')
-    link.ref = 'stylesheet'
+    link.rel = 'stylesheet'
     link.type = 'text/css'
     link.href = `${getUrl()}/style.css`
     document.head.appendChild(link)
