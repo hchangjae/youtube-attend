@@ -2,25 +2,33 @@ import { nameSelector, messageSelector, cardGenerator, getUrl } from './utils'
 
 const openWindow = (chatList) => {
   const myWindow = window.open('/local')
-  const link = myWindow.document.createElement('link')
-  link.ref = 'stylesheet'
-  link.type = 'text/css'
-  link.href = `${getUrl()}/style.css`
-  myWindow.document.head.appendChild(link)
 
   const createCard = cardGenerator(myWindow.document)
 
-  const onload = () => {
-    myWindow.document.body = document.createElement('body')
+  const appendHead = (document) => {
+    const link = document.createElement('link')
+    link.ref = 'stylesheet'
+    link.type = 'text/css'
+    link.href = `${getUrl()}/style.css`
+    document.head.appendChild(link)
+  }
 
-    const container = myWindow.document.createElement('div')
+  const appendBody = (document) => {
+    document.body = document.createElement('body')
+
+    const container = document.createElement('div')
     container.setAttribute('class', 'card-container')
-    myWindow.document.body.appendChild(container)
+    document.body.appendChild(container)
 
     chatList.map((chat) => {
       const card = createCard(chat)
       container.appendChild(card)
     })
+  }
+
+  const onload = (e) => {
+    appendHead(myWindow.document)
+    appendBody(myWindow.document)
   }
 
   myWindow.addEventListener('load', onload)

@@ -1,4 +1,4 @@
-export const getUrl = () => 'https://youtubue-attend.uniium.com/'
+export const getUrl = () => 'https://youtube-attend.uniium.com'
 export const messageSelector = (chat) =>
   chat?.children[1]?.children[2]?.innerText
 export const nameSelector = (chat) =>
