@@ -1,9 +1,13 @@
+import moment from 'moment'
+moment.locale('ko')
+
 import { nameSelector, messageSelector, cardGenerator, getUrl } from './utils'
 
-const openWindow = (chatList) => {
+const openWindow = () => {
   const myWindow = window.open('/local')
 
-  const createCard = cardGenerator(myWindow.document)
+  let container = myWindow.document.createElement('div')
+  container.setAttribute('class', 'card-container')
 
   const appendHead = (document) => {
     const link = document.createElement('link')
@@ -16,12 +20,19 @@ const openWindow = (chatList) => {
   const appendBody = (document) => {
     document.body = document.createElement('body')
 
-    const container = document.createElement('div')
+    container = myWindow.document.createElement('div')
     container.setAttribute('class', 'card-container')
-    document.body.appendChild(container)
 
-    chatList.map((chat) => {
-      const card = createCard(chat)
+    document.body.appendChild(container)
+  }
+
+  const createCard = cardGenerator(myWindow.document)
+
+  myWindow.initUserList = (userList) => {
+    console.log(userList)
+    appendBody(myWindow.document)
+    userList.map((name) => {
+      const card = createCard(name)
       container.appendChild(card)
     })
   }
@@ -32,9 +43,8 @@ const openWindow = (chatList) => {
   }
 
   myWindow.addEventListener('load', onload)
-  myWindow.addEventListener('beforeunload', () => {
-    clearInterval(null)
-  })
+
+  return myWindow
 }
 
 export default openWindow

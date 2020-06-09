@@ -3,15 +3,16 @@ export const messageSelector = (chat) =>
   chat?.children[1]?.children[2]?.innerText
 export const nameSelector = (chat) =>
   chat?.children[1]?.children[1]?.children[0]?.innerText
-export const cardGenerator = (document) => (chat) => {
+
+export const cardGenerator = (document) => (name) => {
   const card = document.createElement('div')
-  const name = document.createElement('div')
+  const nameWrapper = document.createElement('div')
 
   card.setAttribute('class', 'card')
-  name.setAttribute('class', 'name')
+  nameWrapper.setAttribute('class', 'nameWrapper')
 
-  name.innerText = nameSelector(chat)
+  nameWrapper.innerText = name
 
-  card.appendChild(name)
+  card.appendChild(nameWrapper)
   return card
 }
