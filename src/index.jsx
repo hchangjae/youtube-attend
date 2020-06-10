@@ -24,7 +24,7 @@ const SideBar = () => {
 // const myWindow = openWindow()
 
 // content.appendChild(sideBar)
-reactDOM.render(<SideBar />, document.body)
+reactDOM.render(<SideBar />, document.querySelector('#app'))
 
 //
 // const init = () => {
