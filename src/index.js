@@ -1,23 +1,12 @@
-import openWindow from './window'
-import createSideBar from './sidebar'
-import '../build/style.css'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
 
-const content = document.querySelector('#content-pages')
-const chatList = [
-  ...document.querySelector(
-    'div#items.style-scope.yt-live-chat-item-list-renderer'
-  ).children,
-]
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
 
-const sideBar = createSideBar(document)
-const myWindow = openWindow()
-
-content.appendChild(sideBar)
-
-//
-const init = () => {
-  const userList = sideBar.getUserList()
-  myWindow.initUserList(userList)
-}
-
-sideBar.addEventToButton(init)
