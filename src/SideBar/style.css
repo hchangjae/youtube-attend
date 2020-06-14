@@ -1,0 +1,14 @@
+iron-pages > :not(slot):not(.iron-selected).side-bar {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.member-list {
+  border: 1px solid #191919;
+}
+
+.attend-check {
+  width: auto;
+  height: 3rem;
+  border: 1px solid #191919;
+}

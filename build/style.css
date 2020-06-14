@@ -28,19 +28,3 @@ body {
 .name {
   font-size: 0.7rem;
 }
-
-/* side-bar */
-iron-pages > :not(slot):not(.iron-selected).side-bar {
-  display: flex !important;
-  flex-direction: column !important;
-}
-
-.member-input {
-  border: 1px solid #191919;
-}
-
-.create-button {
-  width: auto;
-  height: 3rem;
-  border: 1px solid #191919;
-}

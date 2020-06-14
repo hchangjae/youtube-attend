@@ -41,4 +41,10 @@ module.exports = {
       filename: './index.html',
     }),
   ],
+  resolve: {
+    extensions: ['.js', '.jsx', '.css'],
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+    },
+  },
 }

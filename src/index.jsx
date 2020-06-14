@@ -1,35 +1,28 @@
 import React, { useEffect } from 'react'
-import reactDOM from 'react-dom'
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
+import ReactDOM from 'react-dom'
 
-// import openWindow from './window'
-// import createSideBar from './sidebar'
-// import '../build/style.css'
+import SideBar from './SideBar'
+import './reset.css'
+import './style.css'
+import AppReducer from './AppReducer'
 
-const SideBar = () => {
+const app = document.createElement('div')
+app.className = 'app'
+document.querySelector('#content-pages').appendChild(app)
+
+export const store = createStore(AppReducer)
+
+const App = (props) => {
   const a = 1
-  useEffect(() => {
-    console.log('hello world')
-  }, [])
-  return <div className="side-bar">사이드바</div>
+  return (
+    <>
+      <Provider store={store}>
+        <SideBar />
+      </Provider>
+    </>
+  )
 }
 
-// const content = document.querySelector('#content-pages')
-// const chatList = [
-//   ...document.querySelector(
-//     'div#items.style-scope.yt-live-chat-item-list-renderer'
-//   ).children,
-// ]
-
-// const sideBar = createSideBar(document)
-// const myWindow = openWindow()
-
-// content.appendChild(sideBar)
-reactDOM.render(<SideBar />, document.querySelector('#app'))
-
-//
-// const init = () => {
-//   const userList = sideBar.getUserList()
-//   myWindow.initUserList(userList)
-// }
-
-// sideBar.addEventToButton(init)
+ReactDOM.render(<App />, document.querySelector('.app'))

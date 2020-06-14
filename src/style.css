@@ -1,0 +1,19 @@
+#content-pages.yt-live-chat-renderer {
+  display: flex !important;
+  flex-direction: row !important;
+}
+
+iron-pages > :not(slot):not(.iron-selected).app {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.side-bar {
+  display: flex;
+  flex-direction: column;
+}
+
+#content-pages {
+  display: flex !important;
+  flex-direction: row !important;
+}
