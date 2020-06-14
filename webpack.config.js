@@ -1,3 +1,4 @@
+const fs = require('fs')
 const path = require('path')
 const HtmlWebPackPlugin = require('html-webpack-plugin')
 
@@ -34,6 +35,10 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
     ],
+  },
+  devServer: {
+    contentBase: './dist',
+    https: true,
   },
   plugins: [
     new HtmlWebPackPlugin({

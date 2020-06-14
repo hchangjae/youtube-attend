@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "build": "npx webpack --config webpack.config.js --display-error-details"
+    "build": "npx webpack --config webpack.config.js --display-error-details",
+    "dev": "webpack-dev-server --open"
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",
@@ -14,7 +15,8 @@
     "redux": "^4.0.5",
     "style-loader": "^1.2.1",
     "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.11"
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
     "excellentexport": "2.1.0",
