@@ -17,9 +17,6 @@ const AttendTable = (props) => {
     return ExcellentExport.csv(e.target, 'attend-table')
   }
 
-  console.log('chat', chatKeywordList)
-  console.log('member', memberList)
-
   return (
     <>
       <table id="attend-table" className="attend-table">

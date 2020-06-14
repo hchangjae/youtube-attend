@@ -32,8 +32,6 @@ const DisplayBoard = (props) => {
     chatKeywordList.map((chat) => {
       const { name, message } = chat
       const member = window.document.querySelector(`.${name}`)
-      console.log(name)
-      console.log(member)
       if (member && !member.className.endsWith(' on')) {
         member.className = member.className + ' on'
       }
