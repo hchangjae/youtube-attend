@@ -39,7 +39,7 @@ const AttendTable = (props) => {
         download={`${toMMDD_HHMM_AP(new Date())}.csv`}
         href="#"
       >
-        엑셀 다운aa
+        엑셀ㅋ
       </a>
     </>
   )

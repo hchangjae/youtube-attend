@@ -46,12 +46,14 @@ const SideBar = (props) => {
       if (keyword === message) dispatch(addKeywordChat(chat))
     })
   }
+
   // 출첵종료시 state 초기화? 아님 다운로드 이후초기화? 음 다음 출첵시 초기화?
   const initWindow = (window) => (e) => {
     console.log('출석체크 시작')
     window.document.body = window.document.createElement('body')
     const App = window.document.createElement('div')
     App.className = 'App'
+
     window.document.body.appendChild(App)
 
     const memberList = [

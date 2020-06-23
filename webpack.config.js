@@ -36,10 +36,19 @@ module.exports = {
       },
     ],
   },
-  devServer: {
-    contentBase: './dist',
-    https: true,
-  },
+  // devServer: {
+  //   contentBase: './build',
+  //   host: '0.0.0.0',
+  //   port: 8080,
+  //   disableHostCheck: true,
+  //   https: true,
+  //   headers: {
+  //     'Access-Control-Allow-Origin': '*'
+  //   },
+  //   useLocalIp: false,
+  //   cert: fs.readFileSync('/etc/letsencrypt/live/uniium.com/fullchain.pem'),
+  //   key: fs.readFileSync('/etc/letsencrypt/live/uniium.com/privkey.pem'),
+  // },
   plugins: [
     new HtmlWebPackPlugin({
       template: './src/index.html',

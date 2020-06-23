@@ -10,19 +10,24 @@ import AppReducer from './AppReducer'
 
 const app = document.createElement('div')
 app.className = 'app'
-document.querySelector('#content-pages').appendChild(app)
+const target = document.querySelector('#content-pages')
 
 export const store = createStore(AppReducer)
 
-const App = (props) => {
-  const a = 1
-  return (
-    <>
-      <Provider store={store}>
-        <SideBar />
-      </Provider>
-    </>
-  )
-}
 
-ReactDOM.render(<App />, document.querySelector('.app'))
+if (target) {
+  target.appendChild(app)
+
+  const App = (props) => {
+    const a = 1
+    return (
+      <>
+        <Provider store={store}>
+          <SideBar />
+        </Provider>
+      </>
+    )
+  }
+
+  ReactDOM.render(<App />, document.querySelector('.app'))
+}
