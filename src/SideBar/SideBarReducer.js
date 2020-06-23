@@ -5,6 +5,8 @@ import {
   SET_MEMBER_LIST,
   SET_MEMBER_ATTEND_LIST,
   SET_MEMBER_NOT_ATTEND_LIST,
+  ADD_MEMBER_ATTEND,
+  ADD_MEMBER_NOT_ATTEND,
 } from './sideBarAction'
 
 const chatKeywordListReducer = (state = [], action) => {
@@ -38,6 +40,15 @@ const memberAttendListReducer = (state = [], action) => {
       const { memberAttendList } = action.payload
       return [...memberAttendList]
 
+    case ADD_MEMBER_ATTEND:
+      const { member: memberAttend } = action.payload
+      return [...state, memberAttend]
+
+    case ADD_MEMBER_NOT_ATTEND:
+      const { member: memberNotAttend } = action.payload
+      const r = state.filter(m => m !== memberNotAttend)
+      return [...r]
+
     default:
       return state
   }
@@ -48,6 +59,15 @@ const memberNotAttendListReducer = (state = [], action) => {
     case SET_MEMBER_NOT_ATTEND_LIST:
       const { memberNotAttendList } = action.payload
       return [...memberNotAttendList]
+
+    case ADD_MEMBER_ATTEND:
+      const { member: memberAttend } = action.payload
+      const r = state.filter(m => m !== memberAttend)
+      return [...r]
+
+    case ADD_MEMBER_NOT_ATTEND:
+      const { member: memberNotAttend } = action.payload
+      return [...state, memberNotAttend]
 
     default:
       return state
