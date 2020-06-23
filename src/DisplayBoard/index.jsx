@@ -26,25 +26,26 @@ const DisplayBoard = (props) => {
   const memberAttendList = useSelector(memberAttendListSelector)
   const memberNotAttendList = useSelector(memberNotAttendListSelector)
 
-  const dev = useRef([])
+  // const dev = useRef([])
 
-  useEffect(() => {
-    memberList.map((member, i) => {
-      const timeout = setTimeout(() => {
-        const chat = { name: member, message: '!출석' }
-        dispatch(addKeywordChat(chat))
+  // 애니메이션 테스트용
+  // useEffect(() => {
+  //   memberList.map((member, i) => {
+  //     const timeout = setTimeout(() => {
+  //       const chat = { name: member, message: '!출석' }
+  //       dispatch(addKeywordChat(chat))
 
-      }, timing * (memberList.length - i))
+  //     }, timing * (memberList.length - i))
 
-      dev.current.push(timeout)
-    })
+  //     dev.current.push(timeout)
+  //   })
 
-    return () => {
-      dev.current.map(timeout => {
-        clearTimeout(timeout)
-      })
-    }
-  }, [memberList])
+  //   return () => {
+  //     dev.current.map(timeout => {
+  //       clearTimeout(timeout)
+  //     })
+  //   }
+  // }, [memberList])
 
   useEffect(() => {
     interval.current = setInterval(() => {
@@ -76,9 +77,14 @@ const DisplayBoard = (props) => {
         enterAnimation={'accordionVertical'}
         leaveAnimation={'accordionVertical'}
       >
-        {[...memberAttendList, ...memberNotAttendList].map((member) => (
+        {memberAttendList.map((member) => (
+          <Card key={member} member={member} attend={true} />
+        ))}
+        <div className="dividor" />
+        {memberNotAttendList.map((member) => (
           <Card key={member} member={member} />
         ))}
+
       </FlipMove>
     </div >
   )

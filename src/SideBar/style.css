@@ -5,6 +5,7 @@ iron-pages > :not(slot):not(.iron-selected).side-bar {
 
 .member-list {
   border: 1px solid #191919;
+  height: 80vh;
 }
 
 .attend-check {

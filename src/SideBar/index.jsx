@@ -12,7 +12,7 @@ import './style'
 import { store } from '..'
 import AttendTable from '../AttendTable'
 
-const keyword = '!출석'
+const keyword = '!이벤트'
 
 const isChatDOM = (dom) => dom?.children[1]?.id === 'content'
 const messageSelector = (chatDOM) => chatDOM.children[1].children[2].innerText
@@ -86,7 +86,7 @@ const SideBar = (props) => {
   }
 
   const startCheck = () => {
-    win.current = window.open('/-')
+    win.current = window.open('/-', '_blank', 'height=800,width=1000')
     win.current.addEventListener('load', initWindow(win.current))
     win.current.addEventListener('beforeunload', clearWindow(win.current))
 
@@ -105,12 +105,10 @@ const SideBar = (props) => {
     <div className="side-bar">
       <textarea
         className="member-list"
-        placeholder="ex)\n홍길동\n짱구\n김무철"
+        placeholder={`ex)\n홍길동\n짱구\n김무철`}
         value={memberText}
         onChange={setValue(setMemberText)}
-      >
-        테스트1 테스트2 테스트3 가 나다라 마바사
-      </textarea>
+      />
       <button
         className="attend-check"
         onClick={isChecking ? endCheck : startCheck}

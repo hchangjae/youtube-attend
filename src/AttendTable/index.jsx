@@ -7,11 +7,13 @@ import { toMMDD_HHMM_AP } from '../utils/dateUtils'
 import {
   chatKeywordListSelector,
   memberListSelector,
+  memberAttendListSelector,
+  memberNotAttendListSelector,
 } from '../SideBar/SideBarReducer'
 
 const AttendTable = (props) => {
-  const chatKeywordList = useSelector(chatKeywordListSelector)
-  const memberList = useSelector(memberListSelector)
+  const memberAttendList = useSelector(memberAttendListSelector)
+  const memberNotAttendList = useSelector(memberNotAttendListSelector)
 
   const exportExcel = (e) => {
     return ExcellentExport.csv(e.target, 'attend-table')
@@ -21,14 +23,16 @@ const AttendTable = (props) => {
     <>
       <table id="attend-table" className="attend-table">
         <tbody>
-          {memberList.map((member) => (
+          {memberAttendList.map((member) => (
             <tr key={member}>
               <td>{member}</td>
-              <td>
-                {chatKeywordList.filter((chat) => chat.name === member).length
-                  ? 'O'
-                  : ''}
-              </td>
+              <td>O</td>
+            </tr>
+          ))}
+          {memberNotAttendList.map((member) => (
+            <tr key={member}>
+              <td>{member}</td>
+              <td> </td>
             </tr>
           ))}
         </tbody>
