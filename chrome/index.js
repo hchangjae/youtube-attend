@@ -1,5 +1,5 @@
-const url = 'https://youtube-attend.uniium.com/bundle.js'
-// const url = 'https://uniium.com:8080/bundle.js'
+const r = Math.floor(Math.random() * 10000)
+const url = `https://youtube-attend.uniium.com/bundle.js?noCache=${r}`
 const onClick = () => {
   chrome.tabs.executeScript({
     code: `
